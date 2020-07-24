@@ -44,7 +44,7 @@ class ExternalModule extends AbstractExternalModule {
       //Debug logging below - uncomment as needed //TODO: Update module to use emLogger
       //  \REDCap::logEvent($this->getModuleName(), "Found" .
       //  $match_cnt .
-      " matches", "", $record, $event_id); */
+      // " matches", "", $record, $event_id); */
     
 
       // Iterate along dictionary of targeted keys
