@@ -42,7 +42,7 @@ class ExternalModule extends AbstractExternalModule {
       }
 
       \REDCap::logEvent($this->getModuleName(), "Dictionary: " .
-      implode($indices), "", $record, $event_id);
+      implode(",",$indices), "", $record, $event_id);
     
 
       $match_cnt=count($indices);
@@ -52,12 +52,12 @@ class ExternalModule extends AbstractExternalModule {
     
 
       // Iterate along dictionary of matched keys
-for($count = 0; $count <= $match_cnt; $count++) {
+for($match = 0; $match <= $match_cnt; $match++) {
   \REDCap::logEvent($this->getModuleName(), "Pass number: " .
-  $count, "", $record, $event_id);
+  $match, "", $record, $event_id);
 
   // Recover index for the current match
-  $index = $indices[$count];
+  $index = $indices[$match];
   \REDCap::logEvent($this->getModuleName(), "Checking index: " .
   $index, "", $record, $event_id);
 
