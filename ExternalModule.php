@@ -52,7 +52,7 @@ class ExternalModule extends AbstractExternalModule {
     
 
       // Iterate along dictionary of matched keys
-for($match = 0; $match <= $match_cnt; $match++) {
+for($match = 0; $match <= $match_cnt-1; $match++) {
   \REDCap::logEvent($this->getModuleName(), "Pass number: " .
   $match, "", $record, $event_id);
 
