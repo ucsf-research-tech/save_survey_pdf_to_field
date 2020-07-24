@@ -30,7 +30,7 @@ class ExternalModule extends AbstractExternalModule {
       //check if instrument is the same one set in config
 
       //      $index = array_search($instrument, $source_instruments); //REMOVED
-      $indices = array_keys($instrument, $source_instruments);
+      $indices = array_keys($source_instruments,$instrument);
 
       //abort hook if not  //REMOVED
       if($index === FALSE) {   //REMOVED
