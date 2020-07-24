@@ -33,18 +33,32 @@ class ExternalModule extends AbstractExternalModule {
       $indices = array_keys($source_instruments,$instrument);
 
       //abort hook if not  //REMOVED
-      if($index === FALSE) {   //REMOVED
+/*       if($index === FALSE) {   //REMOVED
         return 0;              //REMOVED
-      }                        //REMOVED
+      }      */                   //REMOVED
       //abort hook if not
       if($indices === FALSE) {
         return 0;
       }
 
-// Iterate along dictionary of matched keys
-for($count = 0; $count <= count($indices); $count++) {
-  $index = $indices[$count];
+      \REDCap::logEvent($this->getModuleName(), "Dictionary: " .
+      $indices, "", $record, $event_id);
+    
 
+      $match_cnt=count($indices);
+      \REDCap::logEvent($this->getModuleName(), "Found" .
+      $match_cnt .
+      " matches", "", $record, $event_id);
+    
+
+      // Iterate along dictionary of matched keys
+for($count = 0; $count <= $match_cnt; $count++) {
+  \REDCap::logEvent($this->getModuleName(), "Pass number: " .
+  $count, "", $record, $event_id);
+
+  $index = $indices[$count];
+  \REDCap::logEvent($this->getModuleName(), "Checking index: " .
+  $index, "", $record, $event_id);
 
 
 
