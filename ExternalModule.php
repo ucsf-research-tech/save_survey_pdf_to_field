@@ -42,7 +42,7 @@ class ExternalModule extends AbstractExternalModule {
       }
 
       \REDCap::logEvent($this->getModuleName(), "Dictionary: " .
-      $indices, "", $record, $event_id);
+      implode($indices), "", $record, $event_id);
     
 
       $match_cnt=count($indices);
