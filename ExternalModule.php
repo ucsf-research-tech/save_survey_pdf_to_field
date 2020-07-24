@@ -28,29 +28,44 @@ class ExternalModule extends AbstractExternalModule {
       $source_instruments = AbstractExternalModule::getProjectSetting('ssptf_source_instrument');
 
       //check if instrument is the same one set in config
-      $index = array_search($instrument, $source_instruments);
 
+      //      $index = array_search($instrument, $source_instruments); //REMOVED
+      $indices = array_keys($instrument, $source_instruments);
+
+      //abort hook if not  //REMOVED
+      if($index === FALSE) {   //REMOVED
+        return 0;              //REMOVED
+      }                        //REMOVED
       //abort hook if not
-      if($index === FALSE) {
+      if($indices === FALSE) {
         return 0;
       }
+
+// Iterate along dictionary of matched keys
+for($count = 0; $count <= count($indices); $count++) {
+  $index = $indices[$count]
+
+
+
+
+
 
       //get target upload field from config
       $target_fields = AbstractExternalModule::getProjectSetting('ssptf_target_upload_field');
       $target_upload_field = $target_fields[$index];
 
       $matches = array();
-      $index = 1;
+      $i = 1;
       $target_upload_field_name = $target_upload_field;
       if (preg_match('#^(.+)_([0-9]+)$#', $target_upload_field, $matches)) {
           $target_upload_field_name = $matches[1];
-          $index = (int)$matches[2];
+          $i = (int)$matches[2];
       }
 
       //check if we can write to $target_upload_field_name else check other base name variations
       $writable = false;
       $extension = '';
-      for($count = $index; $count <= ATTEMPT_LIMIT + 1; $count++) {
+      for($count = $i; $count <= ATTEMPT_LIMIT + 1; $count++) {
         $field = $target_upload_field_name . $extension;
         if(isset($Proj->metadata[$field]) && $Proj->metadata[$field]['element_type'] == 'file' && !fieldHasValue($project_id, $record, $field, $event_id))
         {
@@ -97,5 +112,6 @@ class ExternalModule extends AbstractExternalModule {
       }
 
       unlink($path_to_temp_file);
+    }
     }
 }
