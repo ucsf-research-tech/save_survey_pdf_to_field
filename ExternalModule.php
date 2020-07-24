@@ -56,6 +56,7 @@ for($count = 0; $count <= $match_cnt; $count++) {
   \REDCap::logEvent($this->getModuleName(), "Pass number: " .
   $count, "", $record, $event_id);
 
+  // Recover index for the current match
   $index = $indices[$count];
   \REDCap::logEvent($this->getModuleName(), "Checking index: " .
   $index, "", $record, $event_id);
@@ -68,6 +69,10 @@ for($count = 0; $count <= $match_cnt; $count++) {
       //get target upload field from config
       $target_fields = AbstractExternalModule::getProjectSetting('ssptf_target_upload_field');
       $target_upload_field = $target_fields[$index];
+      \REDCap::logEvent($this->getModuleName(), "Attempting to write to: " .
+      $target_upload_field, "", $record, $event_id);
+
+
 
       $matches = array();
       $i = 1;
