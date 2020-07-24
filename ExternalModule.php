@@ -43,7 +43,7 @@ class ExternalModule extends AbstractExternalModule {
 
 // Iterate along dictionary of matched keys
 for($count = 0; $count <= count($indices); $count++) {
-  $index = $indices[$count]
+  $index = $indices[$count];
 
 
 
