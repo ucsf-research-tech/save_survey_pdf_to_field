@@ -64,10 +64,24 @@
           "repeatable": true,
           "sub_settings": [
             {
+              "key": "ssptf_source_event",
+              "name": "Event of survey instrument that should be saved to the upload field",
+              "required": true,
+              "type": "event-list",
+              "repeatable": false
+            },
+            {
               "key": "ssptf_source_instrument",
               "name": "Name of survey instrument that should be saved to the upload field",
               "required": true,
               "type": "form-list",
+              "repeatable": false
+            },
+            {
+              "key": "ssptf_target_upload_field_event",
+              "name": "Event where PDFs of the survey named above should be saved",
+              "required": true,
+              "type": "event-list",
               "repeatable": false
             },
             {
